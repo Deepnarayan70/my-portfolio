@@ -1,176 +1,110 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Activity, Database, CloudRain, Utensils } from 'lucide-react';
+import { Github, Activity, HeartPulse, Bot } from 'lucide-react';
+
+const projects = [
+  {
+    title: 'Stock Market Trading Simulator',
+    description: 'ML-based trading system with prediction and portfolio tracking. Uses Linear Regression for 7-day price forecasting with buy/sell simulation.',
+    icon: <Activity size={24} />,
+    tech: ['Python', 'Flask', 'scikit-learn', 'yfinance'],
+    github: 'https://github.com/Deepnarayan70/ai-stock-trading-simulator',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/10',
+    border: 'border-blue-500/20',
+    glowHover: 'hover:shadow-blue-500/20',
+  },
+  {
+    title: 'EduPrep Assistant',
+    description: 'AI-based exam assistant using Gemini API. Helps students prepare with intelligent question generation and study material summarization.',
+    icon: <Bot size={24} />,
+    tech: ['Python', 'Gemini API', 'Flask', 'JavaScript'],
+    github: 'https://github.com/Deepnarayan70/AI-EXAM-Preparation-BOT',
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+    glowHover: 'hover:shadow-emerald-500/20',
+  },
+  {
+    title: 'Diabetes Prediction',
+    description: 'ML model to predict diabetes using healthcare dataset. Comparative analysis of Logistic Regression, Decision Tree, and more algorithms.',
+    icon: <HeartPulse size={24} />,
+    tech: ['Python', 'Pandas', 'scikit-learn', 'Matplotlib'],
+    github: 'https://github.com/Deepnarayan70/diabetes-prediction_Project',
+    color: 'text-purple-400',
+    bg: 'bg-purple-500/10',
+    border: 'border-purple-500/20',
+    glowHover: 'hover:shadow-purple-500/20',
+  },
+];
 
 const Projects = () => {
-  const projects = [
-    {
-      title: "AI Stock Trading Simulator",
-      description: "A comprehensive Flask web application that simulates stock trading and predicts prices using a Linear Regression machine learning model.",
-      icon: <Activity className="text-primary mb-4" size={32} />,
-      tech: ["Flask", "Python", "yfinance", "Scikit-Learn"],
-      features: [
-        "User authentication system",
-        "Stock buy/sell simulation",
-        "Portfolio & ROI tracking",
-        "7-day ML price prediction"
-      ],
-      github: "https://github.com/deepnarayan/ai-stock-trading",
-      demo: "#",
-      gradient: "from-blue-500/20 to-cyan-500/20",
-      borderHover: "hover:border-blue-500/50"
-    },
-    {
-      title: "Diabetes Prediction System",
-      description: "Machine learning application analyzing health dataset metrics to predict diabetes risk using multiple algorithms for higher accuracy.",
-      icon: <Database className="text-purple-400 mb-4" size={32} />,
-      tech: ["Python", "Pandas", "Logistic Regression", "Decision Tree"],
-      features: [
-        "Health dataset analysis",
-        "Comparative model evaluation",
-        "Risk probability scoring"
-      ],
-      github: "https://github.com/deepnarayan/diabetes-prediction",
-      demo: "#",
-      gradient: "from-purple-500/20 to-pink-500/20",
-      borderHover: "hover:border-purple-500/50"
-    },
-    {
-      title: "Weather Forecast Dashboard",
-      description: "An interactive Power BI dashboard providing deep dive analytics and visually appealing data visualizations for weather forecasting.",
-      icon: <CloudRain className="text-emerald-400 mb-4" size={32} />,
-      tech: ["Power BI", "Data Analytics", "Data Visualization"],
-      features: [
-        "Interactive filtering",
-        "Historical trend analysis",
-        "Predictive visualization layouts"
-      ],
-      github: "https://github.com/deepnarayan/weather-dashboard",
-      demo: "#",
-      gradient: "from-emerald-500/20 to-teal-500/20",
-      borderHover: "hover:border-emerald-500/50"
-    },
-    {
-      title: "Foodz Menu Website",
-      description: "A modern, highly responsive restaurant menu website showcasing a clean UI design and interactive dish filtering.",
-      icon: <Utensils className="text-orange-400 mb-4" size={32} />,
-      tech: ["HTML", "CSS", "JavaScript", "Responsive Design"],
-      features: [
-        "Interactive cuisine filtering",
-        "Modern UI/UX principles",
-        "Mobile-first approach"
-      ],
-      github: "https://github.com/deepnarayan/foodz-menu",
-      demo: "#",
-      gradient: "from-orange-500/20 to-red-500/20",
-      borderHover: "hover:border-orange-500/50"
-    }
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.2
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.5 }
-    }
-  };
-
   return (
-    <section id="projects" className="py-20 px-6 md:px-12 relative">
-      <div className="container mx-auto">
-        <motion.div 
+    <section id="projects" className="py-20 relative">
+      <div className="section-container">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Featured <span className="text-gradient">Projects</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-            A selection of my recent work focusing on Machine Learning, Full-Stack Development, and Data Analytics.
+          <p className="text-primary-light text-sm font-medium tracking-wider uppercase mb-2">Projects</p>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+            Things I've <span className="text-gradient">built</span>
+          </h2>
+          <p className="text-gray-200 text-lg font-medium mb-3">
+            Projects focused on Machine Learning, Data Science, and real-world problem solving.
+          </p>
+          <p className="text-gray-400 max-w-xl">
+            A selection of my recent technical work involving predictive modeling and AI-driven solutions.
           </p>
         </motion.div>
 
-        <motion.div 
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto"
-        >
-          {projects.map((project, idx) => (
-            <motion.div 
-              key={idx}
-              variants={itemVariants}
-              className={`glass-card rounded-2xl p-8 relative overflow-hidden group transition-all duration-300 ${project.borderHover} hover:-translate-y-2`}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className={`glass-card-hover rounded-2xl p-7 flex flex-col transition-all duration-300 hover:scale-[1.03] active:scale-95 ${project.glowHover} border border-white/5 shadow-xl`}
             >
-              <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${project.gradient} rounded-full blur-3xl -mr-20 -mt-20 z-0 opacity-50 group-hover:opacity-100 transition-opacity duration-500`} />
-              
-              <div className="relative z-10 flex flex-col h-full">
+              {/* Icon */}
+              <div className={`w-12 h-12 rounded-xl ${project.bg} border ${project.border} flex items-center justify-center ${project.color} mb-5 group-hover:scale-110 transition-transform`}>
                 {project.icon}
-                
-                <h3 className="text-2xl font-bold font-heading text-white mb-3">
-                  {project.title}
-                </h3>
-                
-                <p className="text-gray-400 mb-6 flex-grow">
-                  {project.description}
-                </p>
-                
-                <div className="mb-6 space-y-2">
-                  <span className="text-sm font-semibold text-white/80 uppercase tracking-wider">Features:</span>
-                  <ul className="text-sm text-gray-400 list-disc list-inside">
-                    {project.features.map((feature, fIdx) => (
-                      <li key={fIdx}>{feature}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="flex flex-wrap gap-2 mb-8 mt-auto">
-                  {project.tech.map((tech, tIdx) => (
-                    <span 
-                      key={tIdx} 
-                      className="px-3 py-1 text-xs font-medium text-white/90 bg-white/10 rounded-full border border-white/5"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                
-                <div className="flex gap-4 pt-4 border-t border-white/10">
-                  <a 
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 text-sm font-medium text-gray-300 hover:text-white transition-colors"
+              </div>
+
+              <h3 className="text-white font-bold text-xl mb-3 font-heading">{project.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-grow">{project.description}</p>
+
+              {/* Tech tags */}
+              <div className="flex flex-wrap gap-2 mb-6">
+                {project.tech.map((t, j) => (
+                  <span
+                    key={j}
+                    className="px-3 py-1.5 text-[11px] font-bold text-gray-300 bg-white/5 border border-white/10 rounded-lg backdrop-blur-md"
                   >
-                    <Github size={16} /> Code
-                  </a>
-                  {/*
-                  <a 
-                    href={project.demo} 
-                    className="flex items-center gap-2 text-sm font-medium text-primary hover:text-blue-400 transition-colors ml-auto"
-                  >
-                    Live Demo <ExternalLink size={16} />
-                  </a>
-                  */}
-                </div>
+                    {t}
+                  </span>
+                ))}
+              </div>
+
+              {/* GitHub link */}
+              <div className="pt-5 border-t border-white/8">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-sm font-bold text-gray-400 hover:text-white hover:underline transition-all group/link"
+                >
+                  <Github size={16} className="group-hover/link:rotate-12 transition-transform" /> View on GitHub
+                </a>
               </div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

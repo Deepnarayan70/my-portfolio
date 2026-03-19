@@ -1,98 +1,91 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 
-const Skills = () => {
-  const skillCategories = [
-    {
-      title: "Programming",
-      skills: [
-        { name: "Python", level: 90 },
-        { name: "C++", level: 85 },
-        { name: "JavaScript", level: 80 }
-      ],
-      color: "from-blue-500 to-cyan-400"
-    },
-    {
-      title: "Data Science & ML",
-      skills: [
-        { name: "Pandas", level: 85 },
-        { name: "NumPy", level: 85 },
-        { name: "Scikit-learn", level: 75 }
-      ],
-      color: "from-purple-500 to-pink-500"
-    },
-    {
-      title: "Web Development",
-      skills: [
-        { name: "React", level: 80 },
-        { name: "HTML & CSS", level: 90 },
-        { name: "Flask", level: 75 }
-      ],
-      color: "from-emerald-400 to-teal-500"
-    },
-    {
-      title: "Tools & Platforms",
-      skills: [
-        { name: "Git & GitHub", level: 85 },
-        { name: "Power BI", level: 80 },
-        { name: "Excel", level: 85 }
-      ],
-      color: "from-orange-400 to-red-500"
-    }
-  ];
+const skillGroups = [
+  {
+    title: 'Programming',
+    skills: ['Python', 'C++', 'Java', 'SQL'],
+    color: 'from-blue-500 to-cyan-400',
+    tagBg: 'bg-blue-500/10',
+    tagBorder: 'border-blue-500/20',
+    tagText: 'text-blue-300',
+  },
+  {
+    title: 'ML / Data Science',
+    skills: ['Pandas', 'NumPy', 'scikit-learn'],
+    color: 'from-purple-500 to-pink-400',
+    tagBg: 'bg-purple-500/10',
+    tagBorder: 'border-purple-500/20',
+    tagText: 'text-purple-300',
+  },
+  {
+    title: 'Web Development',
+    skills: ['HTML', 'CSS', 'Flask'],
+    color: 'from-emerald-400 to-teal-400',
+    tagBg: 'bg-emerald-500/10',
+    tagBorder: 'border-emerald-500/20',
+    tagText: 'text-emerald-300',
+  },
+  {
+    title: 'Tools & Platforms',
+    skills: ['Git', 'GitHub', 'VS Code', 'Power BI'],
+    color: 'from-orange-400 to-amber-400',
+    tagBg: 'bg-orange-500/10',
+    tagBorder: 'border-orange-500/20',
+    tagText: 'text-orange-300',
+  },
+  {
+    title: 'Core CS',
+    skills: ['DSA', 'OOP', 'DBMS'],
+    color: 'from-rose-400 to-red-400',
+    tagBg: 'bg-rose-500/10',
+    tagBorder: 'border-rose-500/20',
+    tagText: 'text-rose-300',
+  },
+];
 
+const Skills = () => {
   return (
-    <section id="skills" className="py-20 px-6 md:px-12 relative bg-surface/30">
-      <div className="container mx-auto">
-        <motion.div 
+    <section id="skills" className="py-20 relative">
+      <div className="section-container">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">Technical <span className="text-gradient">Skills</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
-          <p className="mt-6 text-gray-400 max-w-2xl mx-auto">
-            A comprehensive look at my technical expertise across languages, data structures, and tools.
+          <p className="text-primary-light text-sm font-medium tracking-wider uppercase mb-2">Skills</p>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+            Technologies I <span className="text-gradient">work with</span>
+          </h2>
+          <p className="text-gray-400 max-w-xl">
+            A snapshot of the tools and technologies I use to build projects and solve problems.
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {skillCategories.map((category, idx) => (
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {skillGroups.map((group, i) => (
             <motion.div
-              key={idx}
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="glass p-8 rounded-2xl hover:bg-white/[0.07] transition-colors border border-white/5"
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="glass-card-hover rounded-xl p-6"
             >
-              <h3 className="text-xl font-semibold text-white mb-6 flex items-center gap-3">
-                <span className={`w-2 h-6 rounded-full bg-gradient-to-b ${category.color}`} />
-                {category.title}
-              </h3>
-              
-              <div className="space-y-6">
-                {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx}>
-                    <div className="flex justify-between mb-2">
-                      <span className="text-gray-300 font-medium">{skill.name}</span>
-                      <span className="text-gray-500 text-sm tracking-widest">{skill.level}%</span>
-                    </div>
-                    <div className="w-full bg-surface rounded-full h-2 overflow-hidden border border-white/5">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.level}%` }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 1, delay: 0.2 + (sIdx * 0.1), ease: "easeOut" }}
-                        className={`h-full rounded-full bg-gradient-to-r ${category.color} relative`}
-                      >
-                        {/* Shimmer effect inside the bar */}
-                        <div className="absolute inset-x-0 top-0 h-full bg-white/20 animate-pulse" />
-                      </motion.div>
-                    </div>
-                  </div>
+              <div className="flex items-center gap-3 mb-5">
+                <span className={`w-1.5 h-6 rounded-full bg-gradient-to-b ${group.color}`} />
+                <h3 className="text-white font-semibold text-base">{group.title}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {group.skills.map((skill, j) => (
+                  <span
+                    key={j}
+                    className={`px-3 py-1.5 text-xs font-medium rounded-lg ${group.tagBg} border ${group.tagBorder} ${group.tagText}`}
+                  >
+                    {skill}
+                  </span>
                 ))}
               </div>
             </motion.div>

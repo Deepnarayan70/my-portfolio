@@ -1,88 +1,81 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Code, BrainCircuit } from 'lucide-react';
+import { Code, Brain, Rocket, Lightbulb } from 'lucide-react';
+
+const cards = [
+  {
+    icon: <Code size={22} />,
+    title: 'Development',
+    text: 'Building simple and functional web applications using Flask and clean UI.',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/10',
+    border: 'border-blue-500/20',
+  },
+  {
+    icon: <Lightbulb size={22} />,
+    title: 'Problem Solving',
+    text: 'Practicing DSA on platforms like LeetCode to improve logic and coding skills.',
+    color: 'text-amber-400',
+    bg: 'bg-amber-500/10',
+    border: 'border-amber-500/20',
+  },
+  {
+    icon: <Brain size={22} />,
+    title: 'Machine Learning',
+    text: 'Using Pandas, NumPy, and scikit-learn to build predictive models.',
+    color: 'text-purple-400',
+    bg: 'bg-purple-500/10',
+    border: 'border-purple-500/20',
+  },
+  {
+    icon: <Rocket size={22} />,
+    title: 'Growth',
+    text: 'Continuously learning and improving through projects and coding practice.',
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+  },
+];
 
 const About = () => {
   return (
-    <section id="about" className="py-20 px-6 md:px-12 relative">
-      <div className="container mx-auto">
-        <motion.div 
+    <section id="about" className="py-20 relative">
+      <div className="section-container">
+        {/* Section heading */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="mb-14"
         >
-          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-4">About <span className="text-gradient">Me</span></h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
+          <p className="text-primary-light text-sm font-medium tracking-wider uppercase mb-2">About Me</p>
+          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-5">
+            Turning ideas into <span className="text-gradient">real-world solutions</span>
+          </h2>
+          <p className="text-gray-400 max-w-2xl leading-relaxed">
+            I am a Computer Science student with strong interest in Machine Learning, Data Science, and backend development. I enjoy solving problems using DSA and building practical applications that have real-world impact.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
-            <div className="glass-card p-8 rounded-2xl relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-2xl -mr-10 -mt-10 transition-all group-hover:bg-primary/20" />
-              
-              <h3 className="text-2xl font-heading font-bold mb-6 text-white">Who am I?</h3>
-              
-              <p className="text-gray-300 leading-relaxed mb-6">
-                I am <strong className="text-white">Deep Narayan</strong>, a passionate B.Tech Computer Science Engineering student studying at <strong className="text-primary font-medium">Lovely Professional University</strong>.
-              </p>
-              
-              <p className="text-gray-300 leading-relaxed mb-6">
-                My journey in tech revolves around <strong className="text-white">Machine Learning, Data Science, and Software Development</strong>. I thrive on extracting meaning from complex data sets and translating those insights into functional, performant applications.
-              </p>
-
-              <p className="text-gray-300 leading-relaxed">
-                Whether it's training a predictive model, conceptualizing a data dashboard, or engineering a responsive web interface, I approach every project with curiosity and a desire to build solutions that matter.
-              </p>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="space-y-6"
-          >
-            {/* Highlight Cards */}
-            <div className="glass hover:bg-surface/60 transition-colors p-6 rounded-xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-blue-500/10 flex items-center justify-center shrink-0 border border-blue-500/20">
-                <GraduationCap className="text-blue-400" size={24} />
+        {/* Cards grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {cards.map((card, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.4, delay: i * 0.1 }}
+              className="glass-card-hover rounded-xl p-6"
+            >
+              <div className={`w-10 h-10 rounded-lg ${card.bg} border ${card.border} flex items-center justify-center ${card.color} mb-4`}>
+                {card.icon}
               </div>
-              <div>
-                <h4 className="text-white font-semibold text-lg mb-1">Computer Science Engineering</h4>
-                <p className="text-gray-400 text-sm">Pursuing a rigorous B.Tech degree focusing on core CS fundamentals and advanced methodologies.</p>
-              </div>
-            </div>
-
-            <div className="glass hover:bg-surface/60 transition-colors p-6 rounded-xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center shrink-0 border border-purple-500/20">
-                <BrainCircuit className="text-purple-400" size={24} />
-              </div>
-              <div>
-                <h4 className="text-white font-semibold text-lg mb-1">Data Science & ML</h4>
-                <p className="text-gray-400 text-sm">Passionate about extracting patterns from data and employing algorithmic predictions to solve real problems.</p>
-              </div>
-            </div>
-
-            <div className="glass hover:bg-surface/60 transition-colors p-6 rounded-xl flex items-start gap-4">
-              <div className="w-12 h-12 rounded-lg bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                <Code className="text-emerald-400" size={24} />
-              </div>
-              <div>
-                <h4 className="text-white font-semibold text-lg mb-1">Software Development</h4>
-                <p className="text-gray-400 text-sm">Building responsive web apps and robust backends tailored to user needs and business logic.</p>
-              </div>
-            </div>
-          </motion.div>
-
+              <h3 className="text-white font-semibold text-base mb-2">{card.title}</h3>
+              <p className="text-gray-400 text-sm leading-relaxed">{card.text}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
