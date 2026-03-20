@@ -80,9 +80,9 @@ const Hero = () => {
                 <FileText size={18} /> Download Resume
               </a>
               <a
-                href="mailto:deepnaryan03@gmail.com"
-                className="px-8 py-3.5 rounded-2xl glass hover:bg-white/10 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all cursor-pointer text-base w-full sm:w-auto justify-center border border-white/10"
-              >
+                  href="#contact"
+                  className="px-8 py-3.5 rounded-2xl glass hover:bg-white/10 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all cursor-pointer text-base w-full sm:w-auto justify-center border border-white/10"
+                >
                 <Mail size={18} /> Contact Me
               </a>
             </motion.div>
