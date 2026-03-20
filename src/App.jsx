@@ -8,14 +8,19 @@ import CodingProfiles from './components/CodingProfiles';
 import Certifications from './components/Certifications';
 import Education from './components/Education';
 import Contact from './components/Contact';
+import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   return (
-    <div className="bg-background min-h-screen text-gray-300 selection:bg-primary/30 selection:text-white">
-      {/* Ambient blobs */}
+    <div className="min-h-screen text-gray-300 selection:bg-primary/30 selection:text-white relative">
+      {/* Particle overlay */}
+      <ParticleBackground />
+
+      {/* Animated ambient blobs */}
       <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[5%] left-[10%] w-[400px] h-[400px] rounded-full bg-primary/8 blur-[130px] opacity-40 animate-pulse" />
-        <div className="absolute bottom-[10%] right-[5%] w-[450px] h-[450px] rounded-full bg-secondary/8 blur-[140px] opacity-40" />
+        <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full bg-primary/6 blur-[160px] opacity-30 animate-blob" />
+        <div className="absolute bottom-[15%] right-[5%] w-[550px] h-[550px] rounded-full bg-secondary/6 blur-[180px] opacity-25 animate-blob-delay" />
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/4 blur-[200px] opacity-20 animate-blob-slow" />
       </div>
 
       <Navbar />

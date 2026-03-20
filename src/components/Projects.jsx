@@ -12,7 +12,8 @@ const projects = [
     color: 'text-blue-400',
     bg: 'bg-blue-500/10',
     border: 'border-blue-500/20',
-    glowHover: 'hover:shadow-blue-500/20',
+    glowColor: 'hover:shadow-blue-500/15',
+    topBorder: 'from-blue-500/50 to-blue-500/0',
   },
   {
     title: 'EduPrep Assistant',
@@ -23,7 +24,8 @@ const projects = [
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10',
     border: 'border-emerald-500/20',
-    glowHover: 'hover:shadow-emerald-500/20',
+    glowColor: 'hover:shadow-emerald-500/15',
+    topBorder: 'from-emerald-500/50 to-emerald-500/0',
   },
   {
     title: 'Diabetes Prediction',
@@ -34,13 +36,14 @@ const projects = [
     color: 'text-purple-400',
     bg: 'bg-purple-500/10',
     border: 'border-purple-500/20',
-    glowHover: 'hover:shadow-purple-500/20',
+    glowColor: 'hover:shadow-purple-500/15',
+    topBorder: 'from-purple-500/50 to-purple-500/0',
   },
 ];
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20 relative">
+    <section id="projects" className="py-24 relative">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -50,7 +53,7 @@ const Projects = () => {
           className="mb-14"
         >
           <p className="text-primary-light text-sm font-medium tracking-wider uppercase mb-2">Projects</p>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-4">
             Things I've <span className="text-gradient">built</span>
           </h2>
           <p className="text-gray-200 text-lg font-medium mb-3">
@@ -69,10 +72,13 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`glass-card-hover rounded-2xl p-7 flex flex-col transition-all duration-300 hover:scale-[1.03] active:scale-95 ${project.glowHover} border border-white/5 shadow-xl`}
+              className={`group glass-card-hover rounded-2xl p-7 flex flex-col relative overflow-hidden ${project.glowColor} hover:shadow-2xl border border-white/5`}
             >
+              {/* Top gradient edge */}
+              <div className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r ${project.topBorder}`} />
+
               {/* Icon */}
-              <div className={`w-12 h-12 rounded-xl ${project.bg} border ${project.border} flex items-center justify-center ${project.color} mb-5 group-hover:scale-110 transition-transform`}>
+              <div className={`w-14 h-14 rounded-2xl ${project.bg} border ${project.border} flex items-center justify-center ${project.color} mb-6 group-hover:scale-110 transition-transform duration-300`}>
                 {project.icon}
               </div>
 

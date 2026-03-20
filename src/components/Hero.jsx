@@ -13,10 +13,10 @@ const Hero = () => {
 
   return (
     <section id="home" className="min-h-[90vh] flex items-center pt-24 pb-8 relative overflow-hidden">
-      {/* Soft Ambient background glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[700px] bg-primary/5 rounded-full blur-[160px] pointer-events-none opacity-40" />
-      <div className="absolute top-[-5%] right-[-5%] w-[450px] h-[450px] bg-primary/8 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-secondary/6 rounded-full blur-[110px] pointer-events-none" />
+      {/* Radial spotlight behind hero */}
+      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-gradient-to-br from-primary/8 via-secondary/5 to-transparent blur-[140px] pointer-events-none" />
+      <div className="absolute top-[-5%] right-[-5%] w-[450px] h-[450px] bg-primary/6 rounded-full blur-[120px] pointer-events-none animate-blob" />
+      <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-secondary/5 rounded-full blur-[110px] pointer-events-none animate-blob-delay" />
 
       <div className="section-container w-full max-w-7xl">
         <div className="flex flex-col lg:flex-row items-center gap-6 lg:gap-14">
@@ -36,16 +36,16 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-6xl sm:text-7xl lg:text-8xl font-heading font-bold mb-2 leading-tight tracking-tight"
+              className="text-7xl sm:text-8xl lg:text-9xl font-heading font-bold mb-3 leading-tight tracking-tight"
             >
-              Deep <span className="text-gradient">Narayan</span>
+              Deep <span className="text-gradient-animated">Narayan</span>
             </motion.h1>
 
             <motion.h2
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl sm:text-3xl text-gray-200 mb-4 font-semibold"
+              className="text-2xl sm:text-3xl lg:text-4xl text-gray-200 mb-5 font-semibold"
             >
               Data Science Enthusiast | Aspiring Software Engineer
             </motion.h2>
@@ -54,7 +54,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="mb-6"
+              className="mb-8"
             >
               <p className="text-gray-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed">
                 Building practical ML-based applications and solving real-world problems with data-driven insights.
@@ -69,19 +69,19 @@ const Hero = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-8"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10"
             >
               <a
                 href="https://drive.google.com/file/d/1flV5iVZ0-KNwPSowkxw7kRZBXo8Q8c91/view"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3.5 rounded-2xl bg-primary hover:bg-primary/80 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all text-base w-full sm:w-auto justify-center shadow-2xl shadow-primary/20"
+                className="glow-btn px-8 py-3.5 rounded-2xl bg-gradient-to-r from-primary to-primary/80 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all text-base w-full sm:w-auto justify-center shadow-2xl shadow-primary/25"
               >
                 <FileText size={18} /> Download Resume
               </a>
               <a
                   href="#contact"
-                  className="px-8 py-3.5 rounded-2xl glass hover:bg-white/10 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all cursor-pointer text-base w-full sm:w-auto justify-center border border-white/10"
+                  className="glow-btn px-8 py-3.5 rounded-2xl glass hover:bg-white/10 hover:scale-105 active:scale-95 text-white font-bold flex items-center gap-3 transition-all cursor-pointer text-base w-full sm:w-auto justify-center border border-white/10"
                 >
                 <Mail size={18} /> Contact Me
               </a>
@@ -95,12 +95,12 @@ const Hero = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-3"
             >
               {stats.map((stat, i) => (
-                <div key={i} className="flex items-center gap-3 glass-card p-2 px-4 rounded-2xl border border-white/5 shadow-2xl shadow-black/40 hover:border-primary/20 transition-all group hover:bg-white/5">
-                  <div className="w-9 h-9 rounded-xl bg-primary/10 flex items-center justify-center text-primary-light group-hover:scale-110 transition-transform">
+                <div key={i} className="flex items-center gap-3 glass-card p-2.5 px-5 rounded-2xl border border-white/5 shadow-2xl shadow-black/40 hover:border-primary/20 transition-all group hover:bg-white/5">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary-light group-hover:scale-110 transition-transform">
                     {stat.icon}
                   </div>
                   <div>
-                    <p className="text-white font-extrabold text-base leading-none">{stat.value}</p>
+                    <p className="text-white font-extrabold text-lg leading-none">{stat.value}</p>
                     <p className="text-gray-500 text-[10px] mt-1 uppercase tracking-widest font-bold">{stat.label}</p>
                   </div>
                 </div>
@@ -117,7 +117,7 @@ const Hero = () => {
           >
             <div className="relative group p-2">
               {/* Glow ring */}
-              <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-primary/30 to-secondary/30 blur-2xl animate-glow opacity-60 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 rounded-[40px] bg-gradient-to-br from-primary/25 via-secondary/20 to-accent/15 blur-2xl animate-glow opacity-50 group-hover:opacity-90 transition-opacity duration-700" />
 
               {/* Card */}
               <div className="relative glass-card rounded-[35px] p-3 overflow-hidden border border-white/10 shadow-2xl">
@@ -149,7 +149,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5 }}
-          className="hidden lg:flex justify-center mt-8"
+          className="hidden lg:flex justify-center mt-10"
         >
           <Link
             to="about"

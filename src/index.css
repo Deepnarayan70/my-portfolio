@@ -5,6 +5,9 @@
 @layer base {
   body {
     @apply bg-background text-gray-300 font-sans antialiased overflow-x-hidden;
+    background: linear-gradient(135deg, #060918 0%, #0c0f2e 25%, #120e30 50%, #0a1628 75%, #060918 100%);
+    background-size: 300% 300%;
+    animation: gradientShift 15s ease infinite;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -13,43 +16,107 @@
 }
 
 @layer utilities {
+  /* ── Glass utilities ── */
   .glass {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .glass-card {
-    background: rgba(17, 22, 56, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    background: rgba(13, 17, 42, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
   }
 
   .glass-card-hover {
-    background: rgba(17, 22, 56, 0.7);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
+    background: rgba(13, 17, 42, 0.65);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.35),
+      inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
   .glass-card-hover:hover {
-    border-color: rgba(99, 102, 241, 0.3);
-    box-shadow: 0 8px 40px rgba(99, 102, 241, 0.1);
-    transform: translateY(-4px);
+    border-color: rgba(99, 102, 241, 0.25);
+    box-shadow:
+      0 12px 40px rgba(99, 102, 241, 0.08),
+      0 4px 20px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    transform: translateY(-6px);
+    background: rgba(15, 19, 50, 0.75);
   }
 
+  /* ── Gradient text ── */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light to-secondary;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary-light via-secondary to-accent;
+    background-size: 200% auto;
   }
 
+  .text-gradient-animated {
+    @apply bg-clip-text text-transparent;
+    background: linear-gradient(90deg, #818cf8, #a78bfa, #38bdf8, #818cf8);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    animation: gradientText 6s ease infinite;
+  }
+
+  /* ── Section container ── */
   .section-container {
     @apply max-w-6xl mx-auto px-5 sm:px-8;
   }
+
+  /* ── Glow button ── */
+  .glow-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+  .glow-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(99,102,241,0.4), rgba(167,139,250,0.4), rgba(56,189,248,0.4));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+    filter: blur(8px);
+  }
+  .glow-btn:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Input glow on focus ── */
+  .input-glow {
+    transition: all 0.3s ease;
+  }
+  .input-glow:focus {
+    border-color: rgba(99, 102, 241, 0.5) !important;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1), 0 0 20px rgba(99, 102, 241, 0.08);
+  }
+}
+
+/* ── Animated gradient text keyframe ── */
+@keyframes gradientText {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* ── Gradient background shift ── */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 /* Custom scrollbar */

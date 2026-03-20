@@ -27,7 +27,7 @@ const certs = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="py-20 relative">
+    <section id="certifications" className="py-24 relative">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -37,12 +37,12 @@ const Certifications = () => {
           className="mb-14"
         >
           <p className="text-primary-light text-sm font-medium tracking-wider uppercase mb-2">Certifications</p>
-          <h2 className="text-3xl sm:text-4xl font-heading font-bold mb-4">
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-4">
             My <span className="text-gradient">Certifications</span>
           </h2>
         </motion.div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
+        <div className="grid sm:grid-cols-2 gap-5">
           {certs.map((cert, i) => (
             <motion.div
               key={i}
@@ -50,13 +50,13 @@ const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="glass-card-hover rounded-xl p-6 flex items-start gap-4"
+              className="glass-card-hover rounded-2xl p-7 flex items-start gap-4 hover:shadow-secondary/8 hover:shadow-xl"
             >
-              <div className="w-10 h-10 rounded-lg bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
+              <div className="w-11 h-11 rounded-xl bg-secondary/10 border border-secondary/20 flex items-center justify-center text-secondary shrink-0 mt-0.5">
                 <Award size={20} />
               </div>
               <div className="flex-1 min-w-0">
-                <h3 className="text-white font-semibold text-base mb-1">{cert.title}</h3>
+                <h3 className="text-white font-semibold text-lg mb-1">{cert.title}</h3>
                 <p className="text-gray-500 text-sm mb-3">{cert.issuer}</p>
                 <a
                   href={cert.url}

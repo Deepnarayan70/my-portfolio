@@ -30,13 +30,15 @@ const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'glass py-3' : 'bg-transparent py-5'
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'py-3 bg-background/60 backdrop-blur-2xl border-b border-white/5 shadow-lg shadow-black/20'
+          : 'bg-transparent py-5'
       }`}
     >
       {/* Scroll progress */}
       <div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all"
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent transition-all"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -48,7 +50,7 @@ const Navbar = () => {
           duration={500}
           className="cursor-pointer flex items-center gap-2 group"
         >
-          <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:bg-primary/30 transition-colors">
+          <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:bg-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all">
             <span className="text-primary-light font-heading font-bold text-sm">DN</span>
           </div>
           <span className="text-lg font-heading font-semibold text-white hidden sm:inline">
@@ -67,9 +69,10 @@ const Navbar = () => {
               offset={-80}
               duration={500}
               activeClass="!text-white !font-medium"
-              className="text-gray-400 hover:text-gray-200 cursor-pointer text-[13px] tracking-wide transition-colors"
+              className="text-gray-400 hover:text-gray-200 cursor-pointer text-[13px] tracking-wide transition-colors relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary-light opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
           ))}
         </nav>
@@ -86,7 +89,7 @@ const Navbar = () => {
 
       {/* Mobile Nav */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full glass p-5 flex flex-col gap-3 transform transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 w-full bg-background/80 backdrop-blur-2xl border-b border-white/5 p-5 flex flex-col gap-3 transform transition-all duration-300 ${
           mobileMenuOpen
             ? 'translate-y-0 opacity-100'
             : '-translate-y-4 opacity-0 pointer-events-none'
