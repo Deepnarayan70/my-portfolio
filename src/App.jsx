@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -11,19 +11,36 @@ import Contact from './components/Contact';
 import ParticleBackground from './components/ParticleBackground';
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    const saved = localStorage.getItem('theme');
+    return saved ? saved === 'dark' : true;
+  });
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDarkMode]);
+
+  const toggleTheme = () => setIsDarkMode(!isDarkMode);
+
   return (
-    <div className="min-h-screen text-gray-300 selection:bg-primary/30 selection:text-white relative">
+    <div className={`min-h-screen selection:bg-primary/30 selection:text-white relative transition-colors duration-300 ${isDarkMode ? 'dark bg-background-dark text-slate-300' : 'bg-background-light text-slate-900'}`}>
       {/* Particle overlay */}
       <ParticleBackground />
 
       {/* Animated ambient blobs */}
       <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full bg-primary/6 blur-[160px] opacity-30 animate-blob" />
-        <div className="absolute bottom-[15%] right-[5%] w-[550px] h-[550px] rounded-full bg-secondary/6 blur-[180px] opacity-25 animate-blob-delay" />
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/4 blur-[200px] opacity-20 animate-blob-slow" />
+        <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full bg-primary/10 blur-[160px] opacity-40 animate-blob" />
+        <div className="absolute bottom-[15%] right-[5%] w-[550px] h-[550px] rounded-full bg-secondary/10 blur-[180px] opacity-30 animate-blob-delay" />
+        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent/8 blur-[200px] opacity-25 animate-blob-slow" />
       </div>
 
-      <Navbar />
+      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
       <main className="relative">
         <Hero />
@@ -37,20 +54,20 @@ function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/5 py-12 relative overflow-hidden bg-white/[0.01]">
+      <footer className="border-t border-slate-200 dark:border-white/5 py-12 relative overflow-hidden bg-slate-50 dark:bg-white/[0.01]">
         <div className="section-container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="flex flex-col items-center md:items-start gap-4">
               <div className="flex items-center gap-3">
                 <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/5">
-                  <span className="text-primary-light font-heading font-black text-xs uppercase tracking-tighter">DN</span>
+                  <span className="text-primary font-heading font-black text-xs uppercase tracking-tighter">DN</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-white font-bold text-sm tracking-wide">Deep Narayan</span>
-                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Designed & Developed by Deep Narayan</span>
+                  <span className="text-slate-900 dark:text-white font-bold text-sm tracking-wide transition-colors">Deep Narayan</span>
+                  <span className="text-[10px] text-slate-500 dark:text-gray-500 font-bold uppercase tracking-widest transition-colors">Designed & Developed by Deep Narayan</span>
                 </div>
               </div>
-              <p className="text-xs text-gray-600 font-medium">
+              <p className="text-xs text-slate-400 dark:text-gray-600 font-medium transition-colors">
                 © {new Date().getFullYear()} All rights reserved.
               </p>
             </div>
@@ -60,7 +77,7 @@ function App() {
                 href="https://github.com/Deepnarayan70"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary-light transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
+                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
               >
                 GitHub
               </a>
@@ -68,26 +85,26 @@ function App() {
                 href="https://www.linkedin.com/in/linkdin-deep-narayan/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-500 hover:text-primary-light transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
+                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
               >
                 LinkedIn
               </a>
               <a
                 href="mailto:deepnaryan03@gmail.com"
-                className="text-gray-500 hover:text-primary-light transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
+                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
               >
                 Email
               </a>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[11px] text-gray-700 font-bold tracking-[0.2em] uppercase">
+          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-[11px] text-slate-400 dark:text-gray-700 font-bold tracking-[0.2em] uppercase transition-colors">
               Built with React, Vite & Tailwind CSS
             </p>
-            <div className="flex items-center gap-4 overflow-hidden rounded-full px-4 py-1.5 border border-white/5 bg-white/5 backdrop-blur-md">
+            <div className="flex items-center gap-4 overflow-hidden rounded-full px-4 py-1.5 border border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-white/5 backdrop-blur-md transition-colors">
               <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
-              <span className="text-[10px] text-gray-400 font-bold uppercase tracking-widest">Live Portfolio</span>
+              <span className="text-[10px] text-slate-500 dark:text-gray-400 font-bold uppercase tracking-widest transition-colors">Live Portfolio</span>
             </div>
           </div>
         </div>

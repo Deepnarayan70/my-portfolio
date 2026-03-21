@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -7,13 +8,33 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#060918",
-        surface: "#0d1127",
-        card: "#111638",
-        primary: "#6366f1",
-        "primary-light": "#818cf8",
-        secondary: "#a78bfa",
-        accent: "#38bdf8",
+        background: {
+          dark: "#020617", // Deep Navy
+          light: "#ffffff",
+        },
+        surface: {
+          dark: "#0f172a",
+          light: "#f8fafc",
+        },
+        card: {
+          dark: "#1e293b",
+          light: "#f1f5f9",
+        },
+        primary: {
+          DEFAULT: "#0ea5e9", // Teal/Cyan
+          light: "#38bdf8",
+          dark: "#0284c7",
+        },
+        secondary: {
+          DEFAULT: "#1e40af", // Deep Blue
+          light: "#3b82f6",
+          dark: "#1e3a8a",
+        },
+        accent: {
+          DEFAULT: "#22d3ee", // Cyan
+          light: "#67e8f9",
+          dark: "#0891b2",
+        },
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

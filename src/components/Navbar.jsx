@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Sun, Moon } from 'lucide-react';
 
-const Navbar = () => {
+const Navbar = ({ isDarkMode, toggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -32,13 +32,13 @@ const Navbar = () => {
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled
-          ? 'py-3 bg-background/60 backdrop-blur-2xl border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'py-3 bg-white/70 dark:bg-background-dark/60 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 shadow-lg shadow-black/5 dark:shadow-black/20'
           : 'bg-transparent py-5'
       }`}
     >
       {/* Scroll progress */}
       <div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent transition-all"
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
       />
 
@@ -50,11 +50,11 @@ const Navbar = () => {
           duration={500}
           className="cursor-pointer flex items-center gap-2 group"
         >
-          <div className="w-9 h-9 rounded-lg bg-primary/20 flex items-center justify-center border border-primary/30 group-hover:bg-primary/30 group-hover:shadow-lg group-hover:shadow-primary/20 transition-all">
-            <span className="text-primary-light font-heading font-bold text-sm">DN</span>
+          <div className="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center border border-primary/20 dark:border-primary/30 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 group-hover:shadow-lg group-hover:shadow-primary/10 dark:group-hover:shadow-primary/20 transition-all">
+            <span className="text-primary font-heading font-bold text-sm">DN</span>
           </div>
-          <span className="text-lg font-heading font-semibold text-white hidden sm:inline">
-            Deep<span className="text-primary-light">.</span>
+          <span className="text-lg font-heading font-semibold text-slate-900 dark:text-white transition-colors duration-300 hidden sm:inline">
+            Deep<span className="text-primary">.</span>
           </span>
         </Link>
 
@@ -68,28 +68,46 @@ const Navbar = () => {
               smooth={true}
               offset={-80}
               duration={500}
-              activeClass="!text-white !font-medium"
-              className="text-gray-400 hover:text-gray-200 cursor-pointer text-[13px] tracking-wide transition-colors relative group"
+              activeClass="!text-primary font-semibold"
+              className="text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200 cursor-pointer text-[13px] tracking-wide transition-all relative group"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary-light opacity-0 group-hover:opacity-100 transition-opacity" />
+              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
           ))}
+
+          {/* Theme Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="ml-2 p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-all hover:scale-110 active:scale-95"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          </button>
         </nav>
 
         {/* Mobile menu button */}
-        <button
-          className="md:hidden text-gray-300 hover:text-white p-1"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 transition-all"
+            aria-label="Toggle theme"
+          >
+            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+          <button
+            className="text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white p-1"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Nav */}
       <div
-        className={`md:hidden absolute top-full left-0 w-full bg-background/80 backdrop-blur-2xl border-b border-white/5 p-5 flex flex-col gap-3 transform transition-all duration-300 ${
+        className={`md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-background-dark/80 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 p-5 flex flex-col gap-3 transform transition-all duration-300 ${
           mobileMenuOpen
             ? 'translate-y-0 opacity-100'
             : '-translate-y-4 opacity-0 pointer-events-none'
@@ -104,8 +122,8 @@ const Navbar = () => {
             offset={-80}
             duration={500}
             onClick={() => setMobileMenuOpen(false)}
-            activeClass="text-primary-light font-medium"
-            className="text-gray-300 hover:text-white cursor-pointer text-base p-2"
+            activeClass="text-primary font-semibold"
+            className="text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white cursor-pointer text-base p-2 transition-colors"
           >
             {link.name}
           </Link>
@@ -116,3 +134,4 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
