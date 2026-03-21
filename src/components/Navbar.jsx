@@ -20,111 +20,55 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 
   const navLinks = [
     { name: 'About', to: 'about' },
-    { name: 'Technical Skills', to: 'skills' },
+    { name: 'Skills', to: 'skills' },
     { name: 'Projects', to: 'projects' },
     { name: 'Profiles', to: 'profiles' },
     { name: 'Certifications', to: 'certifications' },
     { name: 'Education', to: 'education' },
-    { name: 'Contact', to: 'contact' },
   ];
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'py-3 bg-white/70 dark:bg-background-dark/60 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 shadow-lg shadow-black/5 dark:shadow-black/20'
-          : 'bg-transparent py-5'
-      }`}
+      className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'py-2.5' : 'py-4'}`}
+      style={isScrolled ? { background: 'var(--bg-card)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--card-border)' } : {}}
     >
-      {/* Scroll progress */}
-      <div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all duration-300"
-        style={{ width: `${scrollProgress}%` }}
-      />
+      <div className="absolute bottom-0 left-0 h-[2px] transition-all duration-300" style={{ width: `${scrollProgress}%`, background: 'linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6)', boxShadow: '0 0 10px rgba(6,182,212,0.5)' }} />
 
       <div className="section-container flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          to="home"
-          smooth={true}
-          duration={500}
-          className="cursor-pointer flex items-center gap-2 group"
-        >
-          <div className="w-9 h-9 rounded-lg bg-primary/10 dark:bg-primary/20 flex items-center justify-center border border-primary/20 dark:border-primary/30 group-hover:bg-primary/20 dark:group-hover:bg-primary/30 group-hover:shadow-lg group-hover:shadow-primary/10 dark:group-hover:shadow-primary/20 transition-all">
-            <span className="text-primary font-heading font-bold text-sm">DN</span>
-          </div>
-          <span className="text-lg font-heading font-semibold text-slate-900 dark:text-white transition-colors duration-300 hidden sm:inline">
-            Deep<span className="text-primary">.</span>
+        <Link to="home" smooth={true} duration={500} className="cursor-pointer">
+          <span className="text-xl font-heading font-black tracking-tighter" style={{ color: 'var(--text-primary)' }}>
+            DEEP<span style={{ color: '#06b6d4' }}>.</span>
           </span>
         </Link>
 
-        {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-7">
           {navLinks.map((link) => (
-            <Link
-              key={link.to}
-              to={link.to}
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
-              activeClass="!text-primary font-semibold"
-              className="text-slate-500 dark:text-gray-400 hover:text-primary dark:hover:text-gray-200 cursor-pointer text-[13px] tracking-wide transition-all relative group"
-            >
+            <Link key={link.to} to={link.to} spy={true} smooth={true} offset={-80} duration={500} activeClass="!text-cyan-500" className="cursor-pointer text-[13px] font-semibold tracking-tight transition-colors" style={{ color: 'var(--text-secondary)' }}>
               {link.name}
-              <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-primary opacity-0 group-hover:opacity-100 transition-opacity" />
             </Link>
           ))}
 
-          {/* Theme Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="ml-2 p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 hover:text-primary dark:hover:text-white transition-all hover:scale-110 active:scale-95"
-            aria-label="Toggle theme"
-          >
-            {isDarkMode ? <Sun size={18} /> : <Moon size={18} />}
+          {/* Theme toggle */}
+          <button onClick={toggleTheme} className="p-2 rounded-xl transition-all duration-300 hover:scale-110" style={{ background: 'var(--bg-card)', border: '1px solid var(--card-border)', color: 'var(--text-secondary)' }} aria-label="Toggle theme">
+            {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </button>
+
+          <Link to="contact" smooth={true} duration={500} offset={-80} className="btn-primary px-5 py-2 text-xs cursor-pointer">Contact</Link>
         </nav>
 
-        {/* Mobile menu button */}
         <div className="flex items-center gap-3 md:hidden">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-gray-400 transition-all"
-            aria-label="Toggle theme"
-          >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+          <button onClick={toggleTheme} className="p-2 rounded-xl" style={{ background: 'var(--bg-card)', border: '1px solid var(--card-border)', color: 'var(--text-secondary)' }}>
+            {isDarkMode ? <Sun size={16} /> : <Moon size={16} />}
           </button>
-          <button
-            className="text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white p-1"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
+          <button style={{ color: 'var(--text-primary)' }} className="p-1" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Nav */}
-      <div
-        className={`md:hidden absolute top-full left-0 w-full bg-white/95 dark:bg-background-dark/80 backdrop-blur-2xl border-b border-slate-200 dark:border-white/5 p-5 flex flex-col gap-3 transform transition-all duration-300 ${
-          mobileMenuOpen
-            ? 'translate-y-0 opacity-100'
-            : '-translate-y-4 opacity-0 pointer-events-none'
-        }`}
-      >
+      <div className={`md:hidden absolute top-full left-0 w-full p-5 flex flex-col gap-3 transform transition-all duration-300 ${mobileMenuOpen ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0 pointer-events-none'}`} style={{ background: 'var(--bg-card)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--card-border)' }}>
         {navLinks.map((link) => (
-          <Link
-            key={link.to}
-            to={link.to}
-            spy={true}
-            smooth={true}
-            offset={-80}
-            duration={500}
-            onClick={() => setMobileMenuOpen(false)}
-            activeClass="text-primary font-semibold"
-            className="text-slate-600 dark:text-gray-300 hover:text-primary dark:hover:text-white cursor-pointer text-base p-2 transition-colors"
-          >
+          <Link key={link.to} to={link.to} spy={true} smooth={true} offset={-80} duration={500} onClick={() => setMobileMenuOpen(false)} className="cursor-pointer text-sm font-semibold p-3 rounded-lg transition-colors" style={{ color: 'var(--text-secondary)' }}>
             {link.name}
           </Link>
         ))}
@@ -134,4 +78,3 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
 };
 
 export default Navbar;
-

@@ -8,37 +8,35 @@ import CodingProfiles from './components/CodingProfiles';
 import Certifications from './components/Certifications';
 import Education from './components/Education';
 import Contact from './components/Contact';
-import ParticleBackground from './components/ParticleBackground';
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(() => {
     const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true;
+    return saved ? saved === 'dark' : false; // Light by default
   });
 
   useEffect(() => {
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
     }
   }, [isDarkMode]);
 
   const toggleTheme = () => setIsDarkMode(!isDarkMode);
 
   return (
-    <div className={`min-h-screen selection:bg-primary/30 selection:text-white relative transition-colors duration-300 ${isDarkMode ? 'dark bg-background-dark text-slate-300' : 'bg-background-light text-slate-900'}`}>
-      {/* Particle overlay */}
-      <ParticleBackground />
-
-      {/* Background layer */}
-      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none bg-background-dark" />
+    <div className="min-h-screen font-sans relative">
+      {/* Futuristic background */}
+      <div className="bg-grid" />
+      <div className="orb orb-1" />
+      <div className="orb orb-2" />
+      <div className="orb orb-3" />
 
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
-      <main className="relative">
+      <main className="relative z-10 max-w-[1600px] mx-auto overflow-hidden">
         <Hero />
         <About />
         <Skills />
@@ -49,58 +47,29 @@ function App() {
         <Contact />
       </main>
 
-      {/* Footer */}
-      <footer className="border-t border-slate-200 dark:border-white/5 py-12 relative overflow-hidden bg-slate-50 dark:bg-white/[0.01]">
+      <footer className="relative z-10 border-t py-10 transition-colors duration-500" style={{ borderColor: 'var(--card-border)', background: 'var(--bg-card)', backdropFilter: 'blur(16px)' }}>
         <div className="section-container">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="flex flex-col items-center md:items-start gap-4">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="flex flex-col items-center md:items-start gap-3">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center border border-primary/30 shadow-lg shadow-primary/5">
-                  <span className="text-primary font-heading font-black text-xs uppercase tracking-tighter">DN</span>
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)' }}>
+                  <span className="font-heading font-black text-xs" style={{ color: '#06b6d4' }}>DN</span>
                 </div>
-                <div className="flex flex-col">
-                  <span className="text-slate-900 dark:text-white font-bold text-sm tracking-wide transition-colors">Deep Narayan</span>
-                  <span className="text-[10px] text-slate-500 dark:text-gray-500 font-bold uppercase tracking-widest transition-colors">Designed & Developed by Deep Narayan</span>
+                <div className="flex flex-col text-center md:text-left">
+                  <span className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>Deep Narayan</span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-secondary)' }}>Computer Science Undergraduate</span>
                 </div>
               </div>
-              <p className="text-xs text-slate-400 dark:text-gray-600 font-medium transition-colors">
-                © {new Date().getFullYear()} All rights reserved.
-              </p>
+              <p className="text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} All rights reserved.</p>
             </div>
-
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              <a
-                href="https://github.com/Deepnarayan70"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://www.linkedin.com/in/linkdin-deep-narayan/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
-              >
-                LinkedIn
-              </a>
-              <a
-                href="mailto:deepnaryan03@gmail.com"
-                className="text-slate-500 dark:text-gray-500 hover:text-primary transition-all text-sm font-bold uppercase tracking-widest hover:scale-110 active:scale-90"
-              >
-                Email
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-12 pt-8 border-t border-slate-200 dark:border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[11px] text-slate-400 dark:text-gray-700 font-bold tracking-[0.2em] uppercase transition-colors">
-              Built with React, Vite & Tailwind CSS
-            </p>
-            <div className="flex items-center gap-4 overflow-hidden rounded-full px-4 py-1.5 border border-slate-200 dark:border-white/5 bg-slate-100 dark:bg-white/5 backdrop-blur-md transition-colors">
-              <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.5)]" />
-              <span className="text-[10px] text-slate-500 dark:text-gray-400 font-bold uppercase tracking-widest transition-colors">Live Portfolio</span>
+            <div className="flex flex-wrap justify-center items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em]">
+              {[
+                { label: 'GitHub', href: 'https://github.com/Deepnarayan70' },
+                { label: 'LinkedIn', href: 'https://www.linkedin.com/in/linkdin-deep-narayan/' },
+                { label: 'Email', href: 'mailto:deepnaryan03@gmail.com' },
+              ].map(link => (
+                <a key={link.label} href={link.href} target={link.href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer" className="transition-colors hover:text-cyan-500" style={{ color: 'var(--text-secondary)' }}>{link.label}</a>
+              ))}
             </div>
           </div>
         </div>
