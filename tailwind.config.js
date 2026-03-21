@@ -9,32 +9,25 @@ export default {
     extend: {
       colors: {
         background: {
-          dark: "#020617", // Deep Navy
-          light: "#ffffff",
-        },
-        surface: {
-          dark: "#0f172a",
-          light: "#f8fafc",
-        },
-        card: {
-          dark: "#1e293b",
-          light: "#f1f5f9",
+          dark: "#0B1220", // Deep Navy
+          light: "#F8FAFC",
         },
         primary: {
-          DEFAULT: "#0ea5e9", // Teal/Cyan
-          light: "#38bdf8",
-          dark: "#0284c7",
+          DEFAULT: "#14B8A6", // Teal
+          light: "#2DD4BF",
+          dark: "#0F766E",
         },
         secondary: {
-          DEFAULT: "#1e40af", // Deep Blue
-          light: "#3b82f6",
-          dark: "#1e3a8a",
+          DEFAULT: "#3B82F6", // Blue
+          light: "#60A5FA",
+          dark: "#1D4ED8",
         },
-        accent: {
-          DEFAULT: "#22d3ee", // Cyan
-          light: "#67e8f9",
-          dark: "#0891b2",
-        },
+        slate: {
+          900: "#0F172A",
+          800: "#1E293B",
+          400: "#94A3B8",
+          500: "#64748B",
+        }
       },
       fontFamily: {
         sans: ["Inter", "sans-serif"],

@@ -9,32 +9,26 @@ const educationData = [
     period: '2023 – Present',
     detail: 'CGPA: 8.1 / 10.0',
     color: 'border-primary',
-    ring: 'ring-primary/20',
-    glow: 'shadow-primary/20',
   },
   {
     degree: 'Higher Secondary Education (Class 12)',
     institution: 'Kendriya Vidyalaya',
-    period: 'Completed 2023',
+    period: '2023',
     detail: 'Percentage: 70.6%',
     color: 'border-secondary',
-    ring: 'ring-secondary/20',
-    glow: 'shadow-secondary/20',
   },
   {
     degree: 'Secondary Education (Class 10)',
     institution: 'Kendriya Vidyalaya',
-    period: 'Completed 2021',
+    period: '2021',
     detail: 'Percentage: 90.4%',
-    color: 'border-accent',
-    ring: 'ring-accent/20',
-    glow: 'shadow-accent/20',
+    color: 'border-emerald-500',
   },
 ];
 
 const Education = () => {
   return (
-    <section id="education" className="py-24 relative overflow-hidden">
+    <section id="education" className="py-20 relative overflow-hidden bg-white/30 dark:bg-slate-900/20">
       <div className="section-container">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -43,18 +37,18 @@ const Education = () => {
           transition={{ duration: 0.5 }}
           className="mb-14 text-center lg:text-left"
         >
-          <p className="text-primary font-bold text-sm tracking-widest uppercase mb-2">Qualifications</p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-4 text-slate-900 dark:text-white transition-colors">
-            Academic <span className="text-gradient">Background</span>
+          <p className="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4">Qualifications</p>
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-6 text-slate-900 dark:text-white">
+            Education
           </h2>
         </motion.div>
 
         {/* Timeline */}
         <div className="relative max-w-3xl mx-auto lg:mx-0">
           {/* Vertical line */}
-          <div className="absolute left-[11px] top-2 bottom-2 w-[2px] bg-slate-200 dark:bg-gradient-to-b dark:from-primary/30 dark:via-secondary/20 dark:to-accent/10" />
+          <div className="absolute left-[11px] top-2 bottom-2 w-[2px] bg-slate-200 dark:bg-slate-700" />
 
-          <div className="space-y-10">
+          <div className="space-y-8">
             {educationData.map((edu, i) => (
               <motion.div
                 key={i}
@@ -64,17 +58,17 @@ const Education = () => {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="relative pl-12"
               >
-                {/* Timeline dot with glow */}
-                <span className={`absolute left-0 top-2 w-[24px] h-[24px] rounded-full bg-white dark:bg-background-dark border-4 ${edu.color} ring-4 ${edu.ring} shadow-lg transition-all`} />
+                {/* Timeline dot */}
+                <span className={`absolute left-0 top-2 w-[24px] h-[24px] rounded-full bg-white dark:bg-slate-900 border-4 ${edu.color} shadow-sm transition-all`} />
 
-                <div className="glass-card-hover rounded-2xl p-8 border border-slate-200 dark:border-white/5 shadow-xl transition-all">
-                  <div className="flex items-center gap-2.5 text-xs font-bold text-slate-400 dark:text-gray-500 mb-4 transition-colors uppercase tracking-widest">
-                    <Calendar size={14} className="text-primary" />
+                <div className="bg-white dark:bg-slate-800/40 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/30 transition-all">
+                  <div className="flex items-center gap-2.5 text-[10px] font-black text-slate-400 dark:text-slate-500 mb-4 uppercase tracking-[0.2em]">
+                    <Calendar size={12} className="text-primary" />
                     {edu.period}
                   </div>
-                  <h3 className="text-slate-900 dark:text-white font-bold text-xl mb-2 transition-colors">{edu.degree}</h3>
-                  <p className="text-primary font-bold text-sm mb-3 transition-colors uppercase tracking-wide">{edu.institution}</p>
-                  <p className="text-slate-500 dark:text-gray-400 text-sm font-medium transition-colors">{edu.detail}</p>
+                  <h3 className="text-slate-900 dark:text-white font-bold text-xl mb-2">{edu.degree}</h3>
+                  <p className="text-primary font-bold text-xs uppercase tracking-widest mb-4">{edu.institution}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">{edu.detail}</p>
                 </div>
               </motion.div>
             ))}

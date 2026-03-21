@@ -6,50 +6,41 @@ const cards = [
   {
     icon: <Code size={22} />,
     title: 'Development',
-    text: 'Building functional web applications using Flask with a focus on clean, intuitive interfaces.',
-    color: 'text-blue-500 dark:text-blue-400',
-    bg: 'bg-blue-500/10',
-    border: 'border-blue-500/20',
-    topBorder: 'border-t-blue-500/40',
-    hoverGlow: 'hover:shadow-blue-500/10',
+    text: 'Proficiency in building data-driven applications and robust backend systems using Python and Flask.',
+    color: 'text-teal-500',
+    bg: 'bg-teal-500/5',
+    border: 'border-teal-500/10',
   },
   {
     icon: <Lightbulb size={22} />,
     title: 'Problem Solving',
-    text: 'Proficient in Data Structures and Algorithms with consistent practice on platforms like LeetCode.',
-    color: 'text-amber-500 dark:text-amber-400',
-    bg: 'bg-amber-500/10',
-    border: 'border-amber-500/20',
-    topBorder: 'border-t-amber-500/40',
-    hoverGlow: 'hover:shadow-amber-500/10',
+    text: 'Strong foundation in Data Structures and Algorithms with a focus on efficient, scalable computational logic.',
+    color: 'text-blue-500',
+    bg: 'bg-blue-500/5',
+    border: 'border-blue-500/10',
   },
   {
     icon: <Brain size={22} />,
-    title: 'Machine Learning',
-    text: 'Experienced in developing predictive models using Pandas, NumPy, and scikit-learn.',
-    color: 'text-primary dark:text-primary-light',
-    bg: 'bg-primary/10',
-    border: 'border-primary/20',
-    topBorder: 'border-t-primary/40',
-    hoverGlow: 'hover:shadow-primary/10',
+    title: 'Data Science',
+    text: 'Experienced in statistical analysis, predictive modeling, and deriving actionable insights from complex datasets.',
+    color: 'text-primary',
+    bg: 'bg-primary/5',
+    border: 'border-primary/10',
   },
   {
     icon: <Rocket size={22} />,
-    title: 'Technical Growth',
-    text: 'Dedicated to continuous learning and technical excellence through projects and coding challenges.',
-    color: 'text-emerald-500 dark:text-emerald-400',
-    bg: 'bg-emerald-500/10',
-    border: 'border-emerald-500/20',
-    topBorder: 'border-t-emerald-500/40',
-    hoverGlow: 'hover:shadow-emerald-500/10',
+    title: 'Learning',
+    text: 'Dedicated to continuous improvement and staying current with industry-leading analytical tools and methodologies.',
+    color: 'text-indigo-500',
+    bg: 'bg-indigo-500/5',
+    border: 'border-indigo-500/10',
   },
 ];
 
 const About = () => {
   return (
-    <section id="about" className="py-24 relative overflow-hidden">
+    <section id="about" className="py-20 relative overflow-hidden bg-white/30 dark:bg-slate-900/20">
       <div className="section-container">
-        {/* Section heading */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,12 +48,12 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="mb-14 text-center lg:text-left"
         >
-          <p className="text-primary font-bold text-sm tracking-widest uppercase mb-2">About</p>
-          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-5 text-slate-900 dark:text-white transition-colors">
-            Transforming Complex Ideas into <span className="text-gradient">Intelligent Solutions</span>
+          <p className="text-primary font-bold text-xs tracking-[0.3em] uppercase mb-4">Introduction</p>
+          <h2 className="text-4xl sm:text-5xl font-heading font-bold mb-6 text-slate-900 dark:text-white">
+            About
           </h2>
-          <p className="text-slate-500 dark:text-slate-400 max-w-2xl leading-relaxed text-lg mx-auto lg:mx-0 transition-colors">
-            Computer Science student with a specialized focus on Machine Learning, Data Science, and Engineering. Passionate about solving complex logical challenges and building scalable applications that drive meaningful impact through data-driven insights.
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed text-lg mx-auto lg:mx-0 font-medium">
+            Computer Science student with a focused commitment to Data Science and back-end engineering. Specialized in building analytical systems that leverage data-driven insights to solve complex real-world problems.
           </p>
         </motion.div>
 
@@ -75,13 +66,13 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.4, delay: i * 0.1 }}
-              className={`glass-card-hover rounded-2xl p-7 border-t-2 ${card.topBorder} ${card.hoverGlow} border-slate-200 dark:border-white/5 shadow-xl transition-all`}
+              className="bg-white dark:bg-slate-800/40 rounded-3xl p-8 border border-slate-100 dark:border-slate-700 shadow-sm hover:shadow-md hover:border-primary/30 transition-all group"
             >
-              <div className={`w-12 h-12 rounded-xl ${card.bg} border ${card.border} flex items-center justify-center ${card.color} mb-6 transition-colors`}>
+              <div className={`w-14 h-14 rounded-2xl ${card.bg} border ${card.border} flex items-center justify-center ${card.color} mb-8 transition-transform group-hover:scale-110`}>
                 {card.icon}
               </div>
-              <h3 className="text-slate-900 dark:text-white font-bold text-xl mb-3 transition-colors">{card.title}</h3>
-              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed transition-colors">{card.text}</p>
+              <h3 className="text-slate-900 dark:text-white font-bold text-xl mb-4">{card.title}</h3>
+              <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed font-medium">{card.text}</p>
             </motion.div>
           ))}
         </div>

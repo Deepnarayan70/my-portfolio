@@ -19,11 +19,11 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
   }, []);
 
   const navLinks = [
-    { name: 'Home', to: 'home' },
     { name: 'About', to: 'about' },
-    { name: 'Skills', to: 'skills' },
+    { name: 'Technical Skills', to: 'skills' },
     { name: 'Projects', to: 'projects' },
     { name: 'Profiles', to: 'profiles' },
+    { name: 'Certifications', to: 'certifications' },
     { name: 'Education', to: 'education' },
     { name: 'Contact', to: 'contact' },
   ];
