@@ -38,7 +38,7 @@ const Navbar = ({ isDarkMode, toggleTheme }) => {
     >
       {/* Scroll progress */}
       <div
-        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary via-secondary to-accent transition-all duration-300"
+        className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-primary to-secondary transition-all duration-300"
         style={{ width: `${scrollProgress}%` }}
       />
 

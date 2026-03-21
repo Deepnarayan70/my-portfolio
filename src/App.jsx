@@ -33,12 +33,8 @@ function App() {
       {/* Particle overlay */}
       <ParticleBackground />
 
-      {/* Animated ambient blobs */}
-      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none">
-        <div className="absolute top-[5%] left-[10%] w-[500px] h-[500px] rounded-full bg-primary/5 blur-[160px] opacity-20 animate-blob" />
-        <div className="absolute bottom-[15%] right-[5%] w-[550px] h-[550px] rounded-full bg-secondary/5 blur-[180px] opacity-15 animate-blob-delay" />
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[200px] opacity-10 animate-blob-slow" />
-      </div>
+      {/* Background layer */}
+      <div className="fixed inset-0 overflow-hidden -z-10 pointer-events-none bg-background-dark" />
 
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 

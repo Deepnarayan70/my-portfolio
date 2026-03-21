@@ -8,17 +8,12 @@ const Hero = () => {
   const stats = [
     { icon: <Target size={18} />, value: '300+', label: 'Problems Solved' },
     { icon: <Code size={18} />, value: '3+', label: 'Projects Built' },
-    { icon: <Cpu size={18} />, value: 'ML', label: 'Focus Area' },
+    { icon: <Cpu size={18} />, value: 'Data Science', label: 'Focus Area' },
   ];
 
   return (
-    <section id="home" className="min-h-[90vh] flex items-center pt-24 pb-8 relative overflow-hidden">
-      {/* Radial spotlight behind hero */}
-      <div className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] rounded-full bg-gradient-to-br from-primary/10 via-secondary/5 to-transparent blur-[140px] pointer-events-none" />
-      <div className="absolute top-[-5%] right-[-5%] w-[450px] h-[450px] bg-primary/8 rounded-full blur-[120px] pointer-events-none animate-blob" />
-      <div className="absolute bottom-[-5%] left-[-5%] w-[400px] h-[400px] bg-secondary/8 rounded-full blur-[110px] pointer-events-none animate-blob-delay" />
-
-      <div className="section-container w-full max-w-6xl">
+    <section id="home" className="min-h-[90vh] flex items-center pt-24 pb-8 relative overflow-hidden bg-background-dark">
+      <div className="section-container w-full max-w-6xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
 
           {/* Left — Text content */}
@@ -27,26 +22,26 @@ const Hero = () => {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary font-bold text-xs uppercase tracking-widest mb-6"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#22C55E] text-white font-bold text-xs uppercase tracking-widest mb-6 shadow-[0_0_15px_rgba(34,197,94,0.3)]"
             >
-              <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span>Available for new opportunities</span>
+              <div className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+              <span>Available</span>
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-6xl sm:text-7xl lg:text-8xl font-heading font-bold mb-4 leading-tight tracking-tight text-slate-900 dark:text-white"
+              className="text-6xl sm:text-7xl lg:text-8xl font-heading font-bold mb-4 leading-tight tracking-tight text-white transition-colors"
             >
-              Deep <span className="text-gradient">Narayan</span>
+              Deep Narayan
             </motion.h1>
 
             <motion.h2
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-2xl sm:text-3xl lg:text-4xl text-slate-800 dark:text-slate-200 mb-6 font-bold tracking-tight"
+              className="text-2xl sm:text-3xl lg:text-4xl text-slate-200 mb-6 font-bold tracking-tight"
             >
               Data Science Enthusiast | Data-Driven Developer
             </motion.h2>
@@ -57,7 +52,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="mb-10"
             >
-              <p className="text-slate-600 dark:text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
+              <p className="text-slate-400 text-lg sm:text-xl max-w-2xl mx-auto lg:mx-0 leading-relaxed font-medium">
                 Building data-driven solutions and analytical systems to solve real-world problems.
               </p>
             </motion.div>
@@ -81,7 +76,7 @@ const Hero = () => {
                   to="contact"
                   smooth={true}
                   duration={500}
-                  className="px-8 py-4 rounded-2xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 hover:border-primary transition-all text-slate-900 dark:text-white font-bold flex items-center gap-3 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  className="px-8 py-4 rounded-2xl bg-slate-800/50 border border-slate-700 hover:border-primary transition-all text-white font-bold flex items-center gap-3 shadow-sm hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 >
                 <Mail size={20} /> Contact
               </Link>
@@ -95,13 +90,13 @@ const Hero = () => {
               className="flex flex-wrap items-center justify-center lg:justify-start gap-4"
             >
               {stats.map((stat, i) => (
-                <div key={i} className="flex items-center gap-3 bg-white dark:bg-slate-800/30 p-3 px-6 rounded-2xl border border-slate-100 dark:border-slate-700/50 shadow-sm">
-                  <div className="w-10 h-10 rounded-xl bg-primary/5 dark:bg-primary/10 flex items-center justify-center text-primary">
+                <div key={i} className="flex items-center gap-3 bg-slate-800/30 p-3 px-6 rounded-2xl border border-slate-700/50 shadow-sm transition-colors">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
                     {stat.icon}
                   </div>
                   <div>
-                    <p className="text-slate-900 dark:text-white font-bold text-xl leading-none">{stat.value}</p>
-                    <p className="text-slate-400 dark:text-slate-500 text-[10px] mt-1 uppercase tracking-widest font-extrabold">{stat.label}</p>
+                    <p className="text-white font-bold text-xl leading-none">{stat.value}</p>
+                    <p className="text-slate-500 text-[10px] mt-1 uppercase tracking-widest font-extrabold">{stat.label}</p>
                   </div>
                 </div>
               ))}

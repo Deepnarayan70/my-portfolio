@@ -75,18 +75,9 @@
     box-shadow: 0 12px 40px rgba(14, 165, 233, 0.08), 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
-  /* ── Gradient text ── */
+  /* ── Simple text gradient ── */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-primary;
-    background-size: 200% auto;
-  }
-
-  .text-gradient-animated {
-    @apply bg-clip-text text-transparent;
-    background: linear-gradient(90deg, #0ea5e9, #1e40af, #22d3ee, #0ea5e9);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    animation: gradientText 6s ease infinite;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
   }
 
   /* ── Section container ── */
@@ -128,20 +119,10 @@
   }
 }
 
-/* ── Animated gradient text keyframe ── */
-@keyframes gradientText {
-  0% {
-    background-position: 0% center;
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
   }
-
-  50% {
-    background-position: 100% center;
-  }
-
-  100% {
-    background-position: 0% center;
-  }
-}
 
 /* ── Gradient background shift ── */
 @keyframes gradientShift {
