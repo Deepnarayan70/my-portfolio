@@ -44,7 +44,7 @@ const Hero = () => {
               <Link to="contact" smooth={true} duration={500} className="btn-primary w-full sm:w-auto justify-center cursor-pointer">
                 <Mail size={18} /> Contact
               </Link>
-              <a href="https://drive.google.com/file/d/1flV5iVZ0-KNwPSowkxw7kRZBXo8Q8c91/view" target="_blank" rel="noopener noreferrer" className="btn-secondary w-full sm:w-auto justify-center">
+              <a href="https://drive.google.com/file/d/1HwbiZPcfAu8MVbs8SRV3JJUGtwxG8qf1/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="btn-secondary w-full sm:w-auto justify-center">
                 <FileText size={18} /> Resume
               </a>
             </motion.div>

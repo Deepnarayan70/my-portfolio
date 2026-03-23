@@ -10,7 +10,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="min-h-screen flex flex-col justify-center py-20">
       <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-14 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-6">Projects</h2>

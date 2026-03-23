@@ -37,7 +37,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="min-h-screen flex flex-col justify-center py-20">
       <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-14 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-6">Contact</h2>
@@ -55,7 +55,7 @@ const Contact = () => {
                 </div>
               </motion.a>
             ))}
-            <motion.a href="https://drive.google.com/file/d/1flV5iVZ0-KNwPSowkxw7kRZBXo8Q8c91/view" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="glass-card-hover py-5 px-6 flex items-center gap-5 group">
+            <motion.a href="https://drive.google.com/file/d/1HwbiZPcfAu8MVbs8SRV3JJUGtwxG8qf1/view?usp=sharing" target="_blank" rel="noopener noreferrer" initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }} className="glass-card-hover py-5 px-6 flex items-center gap-5 group">
               <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform" style={{ background: 'rgba(6,182,212,0.1)', color: '#06b6d4', border: '1px solid rgba(6,182,212,0.2)' }}><FileText size={20} /></div>
               <div className="min-w-0">
                 <p className="text-[10px] uppercase tracking-widest font-black mb-0.5" style={{ color: 'var(--text-secondary)' }}>Resume</p>
