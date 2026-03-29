@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { ExternalLink } from 'lucide-react';
 
 const profiles = [
-  { name: 'LeetCode', url: 'https://leetcode.com/u/Deepnarayan03/', accent: '#f59e0b', icon: 'LC' },
-  { name: 'Codeforces', url: 'https://codeforces.com/profile/Deep4229', accent: '#3b82f6', icon: 'CF' },
-  { name: 'CodeChef', url: 'https://www.codechef.com/users/deepnaryan', accent: '#f97316', icon: 'CC' },
-  { name: 'HackerRank', url: 'https://www.hackerrank.com/profile/deepnaryan03', accent: '#10b981', icon: 'HR' },
+  { name: 'LeetCode', url: 'https://leetcode.com', accent: '#f59e0b', icon: 'LC' },
+  { name: 'Codeforces', url: 'https://codeforces.com', accent: '#1f8acb', icon: 'CF' },
+  { name: 'CodeChef', url: 'https://codechef.com', accent: '#f97316', icon: 'CC' },
+  { name: 'HackerRank', url: 'https://hackerrank.com', accent: '#10b981', icon: 'HR' },
 ];
 
 const CodingProfiles = () => {
@@ -15,6 +15,9 @@ const CodingProfiles = () => {
       <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-14 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-6">Profiles</h2>
+          <p className="max-w-xl leading-relaxed text-lg mx-auto lg:mx-0 mb-10" style={{ color: 'var(--text-secondary)' }}>
+            Practicing Data Structures and Algorithms to improve problem-solving skills.
+          </p>
         </motion.div>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-5">
           {profiles.map((p, i) => (

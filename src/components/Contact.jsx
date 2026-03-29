@@ -17,20 +17,10 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    const { user_name, user_email, message } = formData;
-    if (!user_name.trim() || !user_email.trim() || !message.trim()) { alert('Please fill in all fields.'); return; }
-    setIsSending(true);
-
-    const subject = encodeURIComponent(`Portfolio Contact from ${user_name}`);
-    const body = encodeURIComponent(`Name: ${user_name}\nEmail: ${user_email}\n\nMessage:\n${message}`);
-    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=deepnaryan03@gmail.com&su=${subject}&body=${body}`;
-
-    const newWindow = window.open(gmailUrl, '_blank');
-    if (!newWindow || newWindow.closed) {
-      window.location.href = `mailto:deepnaryan03@gmail.com?subject=${subject}&body=${body}`;
-    }
-
-    setIsSending(false);
+    const { message } = formData;
+    const gmailUrl = `mailto:deepnaryan03@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(message)}`;
+    window.location.href = gmailUrl;
+    
     setShowSuccess(true);
     setFormData({ user_name: '', user_email: '', message: '' });
     setTimeout(() => setShowSuccess(false), 5000);

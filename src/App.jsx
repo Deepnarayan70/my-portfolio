@@ -36,15 +36,15 @@ function App() {
 
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
-      <main className="relative z-10 max-w-[1600px] mx-auto overflow-hidden">
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <CodingProfiles />
-        <Certifications />
-        <Education />
-        <Contact />
+      <main className="relative z-10 max-w-6xl mx-auto overflow-hidden">
+        <div id="home"><Hero /></div>
+        <div id="about" className="py-16"><About /></div>
+        <div id="skills" className="py-16"><Skills /></div>
+        <div id="projects" className="py-16"><Projects /></div>
+        <div id="profiles" className="py-16"><CodingProfiles /></div>
+        <div id="certifications" className="py-16"><Certifications /></div>
+        <div id="education" className="py-16"><Education /></div>
+        <div id="contact" className="py-16"><Contact /></div>
       </main>
 
       <footer className="relative z-10 border-t py-10 transition-colors duration-500" style={{ borderColor: 'var(--card-border)', background: 'var(--bg-card)', backdropFilter: 'blur(16px)' }}>
@@ -55,12 +55,9 @@ function App() {
                 <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{ background: 'rgba(6,182,212,0.1)', border: '1px solid rgba(6,182,212,0.2)' }}>
                   <span className="font-heading font-black text-xs" style={{ color: '#06b6d4' }}>DN</span>
                 </div>
-                <div className="flex flex-col text-center md:text-left">
-                  <span className="font-bold text-sm" style={{ color: 'var(--text-primary)' }}>Deep Narayan</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest" style={{ color: 'var(--text-secondary)' }}>Computer Science Undergraduate</span>
-                </div>
+               <span className="font-bold text-sm tracking-tight" style={{ color: 'var(--text-primary)' }}>Deep Narayan | Computer Science Student</span>
               </div>
-              <p className="text-xs font-medium" style={{ color: 'var(--text-secondary)' }}>© {new Date().getFullYear()} All rights reserved.</p>
+              <p className="text-xs font-semibold opacity-50" style={{ color: 'var(--text-secondary)' }}>© 2026 All rights reserved.</p>
             </div>
             <div className="flex flex-wrap justify-center items-center gap-8 text-[11px] font-bold uppercase tracking-[0.15em]">
               {[

@@ -4,9 +4,9 @@ import { Award, ExternalLink } from 'lucide-react';
 
 const certs = [
   { title: 'Salesforce Certified AI Associate', issuer: 'Salesforce', url: 'https://drive.google.com/file/d/1ig4rPdfjmimCQ_WjwX8DA_DRSz-zUwlg/view', accent: '#3b82f6' },
-  { title: 'Cloud Computing', issuer: 'NPTEL | IIT Kharagpur', url: 'https://drive.google.com/file/d/1XFtnkaGMqm02GUH5NA8wvH7B77WXKpwU/view', accent: '#8b5cf6' },
+  { title: 'NPTEL Cloud Computing', issuer: 'IIT Kharagpur', url: 'https://drive.google.com/file/d/1XFtnkaGMqm02GUH5NA8wvH7B77WXKpwU/view', accent: '#8b5cf6' },
   { title: 'C++ Data Structures & Algorithms', issuer: 'Apna College', url: 'https://drive.google.com/file/d/1kcCshhc7Atx7ACQPJsnA8QQV_DqK37Bf/view', accent: '#10b981' },
-  { title: 'Machine Learning Specialization', issuer: 'CipherSchools', url: 'https://drive.google.com/file/d/1FAj47ott9ZGituV20kYRmVLeWtvrHSye/view', accent: '#f59e0b' },
+  { title: 'Machine Learning with Data Science', issuer: 'CipherSchools', url: 'https://drive.google.com/file/d/1FAj47ott9ZGituV20kYRmVLeWtvrHSye/view', accent: '#f59e0b' },
 ];
 
 const Certifications = () => {

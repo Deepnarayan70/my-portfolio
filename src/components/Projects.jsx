@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { Github, Activity, HeartPulse, Bot } from 'lucide-react';
 
 const projects = [
-  { title: 'Stock Market Trading Simulator', description: 'Developed a stock trading system with price prediction using Linear Regression and portfolio tracking.', icon: <Activity size={22} />, tech: ['Python', 'Flask', 'scikit-learn'], github: 'https://github.com/Deepnarayan70/ai-stock-trading-simulator', accent: '#06b6d4' },
-  { title: 'EduPrep Assistant', description: 'Built an AI-powered assistant using Gemini API for automated question generation and study summarization.', icon: <Bot size={22} />, tech: ['Python', 'Gemini API', 'Flask'], github: 'https://github.com/Deepnarayan70/AI-EXAM-Preparation-BOT', accent: '#3b82f6' },
-  { title: 'Diabetes Prediction System', description: 'Created a classification-based model to predict diabetes risk using healthcare data.', icon: <HeartPulse size={22} />, tech: ['Python', 'Pandas', 'scikit-learn'], github: 'https://github.com/Deepnarayan70/diabetes-prediction_Project', accent: '#8b5cf6' },
+  { title: 'Stock Market Trading Simulator', description: 'Built a stock trading simulator with price prediction and portfolio tracking.', icon: <Activity size={22} />, tech: ['Python', 'Pandas', 'Flask'], github: '#', accent: '#06b6d4' },
+  { title: 'EduPrep Assistant', description: 'Developed an AI-based assistant to help students with exam preparation.', icon: <Bot size={22} />, tech: ['Python', 'HTML/CSS', 'JavaScript'], github: '#', accent: '#3b82f6' },
+  { title: 'Diabetes Prediction System', description: 'Created a machine learning model to predict diabetes risk using healthcare data.', icon: <HeartPulse size={22} />, tech: ['Python', 'Scikit-learn', 'NumPy'], github: '#', accent: '#8b5cf6' },
 ];
 
 const Projects = () => {
@@ -25,9 +25,12 @@ const Projects = () => {
                   <h3 className="text-lg font-black leading-tight tracking-tight" style={{ color: 'var(--text-primary)' }}>{project.title}</h3>
                 </div>
                 <p className="text-sm mb-6 leading-relaxed flex-1" style={{ color: 'var(--text-secondary)' }}>{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
+                <div className="flex flex-wrap items-center gap-x-1 gap-y-1 mb-6">
                   {project.tech.map((t, j) => (
-                    <span key={j} className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest rounded-lg" style={{ background: 'var(--bg-card)', border: '1px solid var(--card-border)', color: 'var(--text-secondary)' }}>{t}</span>
+                    <React.Fragment key={j}>
+                      <span className="text-[10px] font-black uppercase tracking-widest text-gray-500">{t}</span>
+                      {j < project.tech.length - 1 && <span className="text-cyan-500 font-black px-1"> • </span>}
+                    </React.Fragment>
                   ))}
                 </div>
                 <div className="mt-auto">
