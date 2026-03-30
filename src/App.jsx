@@ -37,14 +37,14 @@ function App() {
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
 
       <main className="relative z-10 max-w-6xl mx-auto overflow-hidden">
-        <div id="home"><Hero /></div>
-        <div id="about" className="py-16"><About /></div>
-        <div id="skills" className="py-16"><Skills /></div>
-        <div id="projects" className="py-16"><Projects /></div>
-        <div id="profiles" className="py-16"><CodingProfiles /></div>
-        <div id="certifications" className="py-16"><Certifications /></div>
-        <div id="education" className="py-16"><Education /></div>
-        <div id="contact" className="py-16"><Contact /></div>
+        <Hero />
+        <About />
+        <Skills />
+        <Projects />
+        <CodingProfiles />
+        <Certifications />
+        <Education />
+        <Contact />
       </main>
 
       <footer className="relative z-10 border-t py-10 transition-colors duration-500" style={{ borderColor: 'var(--card-border)', background: 'var(--bg-card)', backdropFilter: 'blur(16px)' }}>
@@ -63,7 +63,7 @@ function App() {
               {[
                 { label: 'GitHub', href: 'https://github.com/Deepnarayan70' },
                 { label: 'LinkedIn', href: 'https://www.linkedin.com/in/linkdin-deep-narayan/' },
-                { label: 'Email', href: 'mailto:deepnaryan03@gmail.com' },
+                { label: 'Email', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=deepnaryan03@gmail.com' },
               ].map(link => (
                 <a key={link.label} href={link.href} target={link.href.startsWith('mailto') ? '_self' : '_blank'} rel="noopener noreferrer" className="transition-colors hover:text-cyan-500" style={{ color: 'var(--text-secondary)' }}>{link.label}</a>
               ))}

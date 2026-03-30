@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Mail, Github, Linkedin, Send, CheckCircle, Loader2, FileText } from 'lucide-react';
 
 const contactLinks = [
-  { icon: <Mail size={20} />, label: 'Email', value: 'deepnaryan03@gmail.com', href: 'mailto:deepnaryan03@gmail.com', accent: '#06b6d4' },
+  { icon: <Mail size={20} />, label: 'Email', value: 'deepnaryan03@gmail.com', href: 'https://mail.google.com/mail/?view=cm&fs=1&to=deepnaryan03@gmail.com', accent: '#06b6d4' },
   { icon: <Linkedin size={20} />, label: 'LinkedIn', value: 'Deep Narayan', href: 'https://www.linkedin.com/in/linkdin-deep-narayan/', accent: '#3b82f6' },
   { icon: <Github size={20} />, label: 'GitHub', value: 'Deepnarayan70', href: 'https://github.com/Deepnarayan70', accent: '#8b5cf6' },
 ];
@@ -17,9 +17,8 @@ const Contact = () => {
 
   const sendEmail = (e) => {
     e.preventDefault();
-    const { message } = formData;
-    const gmailUrl = `mailto:deepnaryan03@gmail.com?subject=Portfolio Contact&body=${encodeURIComponent(message)}`;
-    window.location.href = gmailUrl;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=deepnaryan03@gmail.com&su=Message from Portfolio&body=Hello Deep Narayan,\n\n${formData.message}\n\nBest regards,\n${formData.user_name}`;
+    window.open(gmailUrl, '_blank');
     
     setShowSuccess(true);
     setFormData({ user_name: '', user_email: '', message: '' });
@@ -27,7 +26,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="min-h-screen flex flex-col justify-center py-20">
+    <section id="contact" className="py-12 flex flex-col justify-center">
       <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-14 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-6">Contact</h2>

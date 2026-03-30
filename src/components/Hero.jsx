@@ -12,12 +12,6 @@ const Hero = () => {
           
           {/* LEFT COLUMN: Text Content */}
           <div className="flex-1 w-full text-center lg:text-left">
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full font-bold text-[10px] uppercase tracking-[0.2em] mb-8"
-              style={{ background: 'rgba(6,182,212,0.1)', color: '#06b6d4', border: '1px solid rgba(6,182,212,0.2)' }}>
-              <div className="w-2 h-2 rounded-full animate-pulse" style={{ background: '#06b6d4' }} />
-              <span>Available for Collaborations</span>
-            </motion.div>
 
             <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
               className="text-6xl sm:text-7xl lg:text-8xl font-heading font-black mb-6 leading-none tracking-tighter">
@@ -25,18 +19,20 @@ const Hero = () => {
             </motion.h1>
 
             <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl sm:text-2xl lg:text-3xl mb-8 font-bold tracking-tight text-gray-400">
-              B.Tech CSE Student & Backend Enthusiast
+              className="text-xl sm:text-2xl lg:text-3xl mb-8 font-bold tracking-tight"
+              style={{ color: 'var(--text-secondary)' }}>
+              B.Tech Computer Science Student | Backend & Data Science Developer
             </motion.h2>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 text-gray-500 font-medium">
-              Building data-driven applications and scalable backend systems to solve real-world problems.
+              className="text-lg sm:text-xl max-w-xl mx-auto lg:mx-0 leading-relaxed mb-10 font-medium"
+              style={{ color: 'var(--text-secondary)' }}>
+              I build scalable backend systems and data-driven applications that solve real-world problems. Focused on Python, Flask, and Machine Learning, with strong problem-solving skills in Data Structures & Algorithms.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6">
-              <Link to="contact" smooth={true} duration={500} className="btn-primary w-full sm:w-auto px-10 py-4 justify-center cursor-pointer text-sm font-black uppercase tracking-widest">
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 sm:gap-8 mb-12">
+              <Link to="contact" smooth={true} duration={500} className="btn-primary w-full sm:w-auto px-10 py-4 justify-center cursor-pointer text-sm font-black uppercase tracking-widest text-white">
                 <Mail size={18} className="mr-2" /> Contact Me
               </Link>
               <a href="https://drive.google.com/file/d/1HwbiZPcfAu8MVbs8SRV3JJUGtwxG8qf1/view?usp=sharing" target="_blank" rel="noopener noreferrer" 
@@ -44,6 +40,8 @@ const Hero = () => {
                 <FileText size={18} className="mr-2" /> Resume
               </a>
             </motion.div>
+
+
           </div>
 
           {/* RIGHT COLUMN: Profile Image */}

@@ -25,8 +25,8 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="py-16 sm:py-24 font-sans">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="education" className="py-16 mt-16 font-sans">
+      <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-12 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-4 tracking-tighter">Education</h2>
         </motion.div>

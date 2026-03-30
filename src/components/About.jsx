@@ -4,62 +4,39 @@ import { Code, Database, Brain } from 'lucide-react';
 
 const About = () => {
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center py-24 sm:py-32">
-      <div className="section-container max-w-5xl mx-auto">
+    <section id="about" className="py-12 flex flex-col justify-center">
+      <div className="section-container">
         <motion.div 
           initial={{ opacity: 0, y: 20 }} 
           whileInView={{ opacity: 1, y: 0 }} 
           viewport={{ once: true, margin: '-80px' }} 
           transition={{ duration: 0.5 }} 
-          className="text-center mb-16"
+          className="text-left max-w-3xl"
         >
-          <h2 className="text-4xl sm:text-5xl font-heading font-black mb-4">About Me</h2>
-          <p className="text-xl sm:text-2xl font-bold tracking-tight text-cyan-500 mb-8 uppercase">
-            Data Science & Backend Development Enthusiast
-          </p>
+          <h2 className="text-4xl sm:text-5xl font-heading font-black mb-10">About Me</h2>
           
-          <div className="max-w-3xl leading-relaxed text-lg mx-auto space-y-6 text-gray-400 font-medium">
+          <div className="leading-relaxed text-lg space-y-6 text-gray-400 font-medium mb-12">
             <p>
-              I am Deep Narayan, a B.Tech Computer Science student at Lovely Professional University. I focus on building practical applications and solving real-world problems using data-driven approaches.
+              I am Deep Narayan, a B.Tech Computer Science student at Lovely Professional University (2023–2027).
             </p>
             <p>
-              I work with Python, backend development using Flask, and apply data analysis and basic machine learning techniques to create meaningful solutions.
+              I focus on backend development and data science, building real-world applications using Python and Flask. I work with data analysis tools like Pandas and NumPy and apply machine learning techniques to create practical solutions.
             </p>
             <p>
-              Along with development, I regularly practice Data Structures and Algorithms to strengthen problem-solving skills and logical thinking.
+              I regularly practice Data Structures and Algorithms to strengthen problem-solving and logical thinking.
             </p>
           </div>
+
+          {/* Impact Section */}
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
+            className="p-6 rounded-2xl border bg-cyan-500/5 border-cyan-500/10 max-w-sm text-left inline-block">
+            <div className="text-4xl font-black text-cyan-500 mb-1">300+</div>
+            <div className="text-xl font-bold mb-2" style={{ color: 'var(--text-primary)' }}>Problems Solved</div>
+            <p className="text-base font-medium leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
+              Active on LeetCode, Codeforces, and HackerRank
+            </p>
+          </motion.div>
         </motion.div>
-
-        <div className="grid sm:grid-cols-2 gap-8 mt-12">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
-            viewport={{ once: true }} 
-            transition={{ duration: 0.4 }}
-            className="glass-card p-10 flex flex-col items-center text-center group border-cyan-500/20"
-          >
-            <div className="text-5xl font-black mb-4 group-hover:scale-110 transition-transform text-cyan-500">
-              300+
-            </div>
-            <p className="font-bold uppercase tracking-widest text-xs text-gray-500">Problems Solved</p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }} 
-            whileInView={{ opacity: 1, scale: 1 }} 
-            viewport={{ once: true }} 
-            transition={{ duration: 0.4, delay: 0.1 }}
-            className="glass-card p-10 flex flex-col items-center text-center group border-blue-500/20"
-          >
-            <h3 className="font-black text-xl mb-6 tracking-tight">Focused Areas</h3>
-            <div className="text-sm font-bold tracking-wide text-gray-400">
-              Data Science <span className="text-cyan-500 mx-2">•</span> 
-              Backend Development <span className="text-cyan-500 mx-2">•</span> 
-              Problem Solving
-            </div>
-          </motion.div>
-        </div>
       </div>
     </section>
   );

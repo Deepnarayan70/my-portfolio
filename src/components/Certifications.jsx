@@ -11,14 +11,14 @@ const certs = [
 
 const Certifications = () => {
   return (
-    <section id="certifications" className="min-h-screen flex flex-col justify-center py-20">
+    <section id="certifications" className="py-16 mt-16 flex flex-col justify-center">
       <div className="section-container">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: '-80px' }} transition={{ duration: 0.5 }} className="mb-14 text-center lg:text-left">
           <h2 className="text-4xl sm:text-5xl font-heading font-black mb-6">Certifications</h2>
         </motion.div>
-        <div className="grid sm:grid-cols-2 gap-5">
+        <div className="grid sm:grid-cols-2 gap-6">
           {certs.map((cert, i) => (
-            <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass-card-hover p-7 flex items-start gap-5 group">
+            <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true, margin: '-50px' }} transition={{ duration: 0.4, delay: i * 0.08 }} className="glass-card-hover p-8 flex items-start gap-6 group min-h-[160px]">
               <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-transform group-hover:scale-110" style={{ background: `${cert.accent}15`, color: cert.accent, border: `1px solid ${cert.accent}30` }}>
                 <Award size={22} />
               </div>
