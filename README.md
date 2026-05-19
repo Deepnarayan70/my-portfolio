@@ -1,20 +1,20 @@
-# 🚀 My Portfolio Website
+#  My Portfolio Website
 
-## 📌 Project Overview
+##  Project Overview
 
 This is my personal portfolio website developed using React and Vite.  
 The website showcases my projects, technical skills, certifications, and contact information in a modern and responsive UI.
 
 The project is deployed on both:
 
-- 🌐 Vercel Deployment
-- ☁️ AWS S3 Static Website Hosting
+- 🌐 Vercel Deployment : https://my-portfolio-aihd.vercel.app/
+- ☁️ AWS S3 Static Website Hosting : http://deepnarayan-portfolio-2026.s3-website-us-east-1.amazonaws.com/
 
 This project was also used to understand cloud deployment concepts using Amazon Web Services (AWS).
 
 ---
 
-# 🛠️ Tech Stack
+#  Tech Stack
 
 - React.js
 - Vite
@@ -25,7 +25,7 @@ This project was also used to understand cloud deployment concepts using Amazon 
 
 ---
 
-# ✨ Features
+#  Features
 
 - Responsive portfolio website
 - Modern UI design
@@ -37,7 +37,7 @@ This project was also used to understand cloud deployment concepts using Amazon 
 
 ---
 
-# ☁️ AWS S3 Deployment
+#  AWS S3 Deployment
 
 This portfolio website was deployed on Amazon S3 using Static Website Hosting.
 
@@ -51,6 +51,7 @@ https://my-portfolio-aihd.vercel.app/
 Deployment Screenshots
 
 🔹 AWS S3 Bucket
+
 <img width="1919" height="924" alt="Screenshot 2026-05-18 234447" src="https://github.com/user-attachments/assets/8f4629dd-c407-4453-8368-2c341addb84f" />
 
 <img width="1919" height="926" alt="Screenshot 2026-05-18 235350" src="https://github.com/user-attachments/assets/d226ab24-d5a9-4ced-9178-301e701fdf4a" />
